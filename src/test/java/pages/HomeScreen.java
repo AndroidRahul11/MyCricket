@@ -74,7 +74,7 @@ public class HomeScreen extends iosBase {
 
     public void verifyUserIsLoggedIn() {
         util.waitforVisibility(userNameOnDashboard,15);
-        Assert.assertTrue(userNameOnDashboard.getText().contains("<replace with username>"),"User login fail.");
+        Assert.assertTrue(userNameOnDashboard.getText().contains("Hello Anshu!\n"),"Hello Anshu!");
 
     }
 

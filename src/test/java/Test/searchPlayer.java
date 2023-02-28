@@ -29,7 +29,7 @@ public class searchPlayer extends iosBase {
     }
     @Test(priority = 4)
     public void clickParent(){
-        homeSc qreen.selectParent();
+        homeScreen.selectParent();
     }
 
     @BeforeMethod

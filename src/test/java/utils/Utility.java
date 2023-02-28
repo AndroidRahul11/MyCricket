@@ -52,6 +52,9 @@ public class Utility {
         } while (CanScrollMore);
 
     }
+    public void hidekeyboard() {
+        driver.hideKeyboard();
+    }
 
     public void swipeAction(WebElement ele, String direction) {
         ((JavascriptExecutor) driver).executeScript("mobile: swipeGesture", ImmutableMap.of(

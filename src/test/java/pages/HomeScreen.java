@@ -18,7 +18,7 @@ public class HomeScreen extends iosBase {
     @iOSXCUITFindBy(xpath = "//XCUIElementTypeButton[@name=\"More\"]") public WebElement userNameOnDashboard;
     @iOSXCUITFindBy(xpath= "//XCUIElementTypeStaticText[@name=\"Log in to unlock your dashboard\"]") public WebElement loginbtn;
     @iOSXCUITFindBy(xpath= "//XCUIElementTypeStaticText[@name=\"Choose your primary role\"]") public WebElement RoleSelection;
-    @iOSXCUITFindBy(xpath="//XCUIElementTypeStaticText[@name=\"PLAYER\"]") public WebElement Player;
+    @iOSXCUITFindBy(xpath="//XCUIElementTypeButton[@name=\"PLAYER\"]") public WebElement Player;
     @iOSXCUITFindBy(xpath= "//XCUIElementTypeButton[@name=\"PARENT\"]") private WebElement Parent;
     @iOSXCUITFindBy(iOSClassChain= "//XCUIElementTypeStaticText[@name=\"COACH\"]") private WebElement Coach;
     @iOSXCUITFindBy(iOSClassChain= "//XCUIElementTypeStaticText[@name=\"SUPPORTER\"]") private WebElement Supporter;
@@ -45,7 +45,6 @@ public class HomeScreen extends iosBase {
     }
 
     public Player accessPlayer() {
-        //Player.click();
         util.waitforVisibility(Player,10);
         util.click(Player);
         return new Player(driver);
@@ -74,7 +73,7 @@ public class HomeScreen extends iosBase {
 
     public void verifyUserIsLoggedIn() {
         util.waitforVisibility(userNameOnDashboard,15);
-        Assert.assertTrue(userNameOnDashboard.getText().contains("Hello Anshu!\n"),"Hello Anshu!");
+        Assert.assertTrue(userNameOnDashboard.getText().contains("Hello Anshu!"),"xxx");
 
     }
 

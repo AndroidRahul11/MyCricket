@@ -22,7 +22,6 @@ public class LoginScreen extends iosBase {
 
     @iOSXCUITFindBy(xpath ="//XCUIElementTypeOther[@name=\"main\"]/XCUIElementTypeTextField") private WebElement EmailId;
     @iOSXCUITFindBy(xpath = "//XCUIElementTypeOther[@name=\"main\"]/XCUIElementTypeSecureTextField") private WebElement Password;
-
     @iOSXCUITFindBy(xpath = "//XCUIElementTypeStaticText[@name=\"or\"]") private WebElement or;
     @iOSXCUITFindBy(xpath ="//XCUIElementTypeButton[@name=\"Log in\"]") private WebElement LoginBtn;
     @iOSXCUITFindBy(xpath ="//XCUIElementTypeButton[@name=\"Continue to App\"]") private WebElement ContinuetoApp; //XCUIElementTypeButton[@name="Continue to App"]

@@ -1,6 +1,7 @@
 package qa.mobile;
 
 
+import Test.Logout;
 import io.appium.java_client.AppiumBy;
 import io.appium.java_client.ios.IOSDriver;
 import io.appium.java_client.ios.options.XCUITestOptions;
@@ -27,25 +28,25 @@ public class iosBase {
     public static Follow Follow;
     public static LoginScreen loginScreen;
     public static MoreScreen moreScreen;
+     public static Logout logout;
 
     @BeforeClass
     public void ConfiguredAppium() throws MalformedURLException {
 
 
-        AppiumDriverLocalService service = new AppiumServiceBuilder().withAppiumJS((new File("/usr/local/lib/node_modules/appium/build/lib/main.js"))).withIPAddress("0.0.0.0").usingPort(4723).build();
+        AppiumDriverLocalService service = new AppiumServiceBuilder().withAppiumJS(new File("/usr/local/lib/node_modules/appium/build/lib/main.js")).withIPAddress("0.0.0.0").usingPort(4723).build();
         service.start();
 
         XCUITestOptions options = new XCUITestOptions();
-        options.setDeviceName("Rahul’s iPhone");
-        options.setApp("/Users/rahul.vyavahare/Downloads/Testapps/MyCricket.ipa");
-        //options.setCapability("bundleId","com.cricketaustralia.mycricket");
-
+        options.setDeviceName("Rahul's iPhone");
         options.setPlatformVersion("15.4");
         options.setWdaLaunchTimeout(Duration.ofSeconds(20));
         //options.setDeviceName("iPhone 12");
         //options.setCapability(MobileCapabilityType.UDID,"68371E31-E177-4A3C-816D-DD2A45D46B81");
         options.setCapability(MobileCapabilityType.UDID,"00008110-0001553E3E3B801E");//emu- 6EA4A8ED-1DBD-45BD-A165-01BA6E9550DB //Rahuls - 00008110-0001553E3E3B801E
         options.setCapability("simulatorStartupTimeout", 180000);
+        options.setApp("/Users/rahul.vyavahare/Downloads/Testapps/MyCricket.ipa");
+        //options.setCapability("bundleId","com.cricketaustralia.mycricket");
         options.setCapability("autoAcceptAlerts", true);
         options.setCapability("noReset", true);
         //driver.SwitchTo().Alert().Accept();
@@ -65,13 +66,14 @@ public class iosBase {
          Sc = new SearchClub (driver);
          Follow = new Follow (driver);
         loginScreen = new LoginScreen(driver);
+        moreScreen = new MoreScreen(driver);
+        //logout = new Logout(driver);
     }
     @AfterClass
     public void teardown() throws InterruptedException {
         Thread.sleep(10000);
-        driver.quit();
         service.stop();
+        driver.quit();
     }
-
 
 }

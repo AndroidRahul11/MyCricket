@@ -3,7 +3,7 @@
 <suite name="All Test Suite">
     <test verbose="2" preserve-order="true" name="/Users/anshu_yadav/IdeaProjects/MyCricket">
         <classes>
-        <class name="qa.mobile.iosBase"/>
+        <class name="Test.SearchandLoginFlow"/>
     </classes>
     </test>
 </suite>

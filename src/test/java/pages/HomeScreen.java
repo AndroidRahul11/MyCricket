@@ -3,6 +3,7 @@ package pages;
 import io.appium.java_client.ios.IOSDriver;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
@@ -50,6 +51,16 @@ public class HomeScreen extends iosBase {
         return new Player(driver);
     }
 
+    public boolean isPlayerScreenPresent() {
+        boolean isPlayerPresent =false;
+        try {
+            util.waitforVisibility(Player, 10);
+            isPlayerPresent=true;
+        }catch (Exception e){
+        }
+        return isPlayerPresent;
+    }
+
     public Player selectParent() {
         util.waitforVisibility(Parent,10);
         util.click(Parent);
@@ -73,7 +84,9 @@ public class HomeScreen extends iosBase {
 
     public void verifyUserIsLoggedIn() {
         util.waitforVisibility(userNameOnDashboard,15);
-        Assert.assertTrue(userNameOnDashboard.getText().contains("Hello Anshu!"),"xxx");
+        //Assert.assertTrue(userNameOnDashboard.getText().contains("Anshu"),"Actual text:"+userNameOnDashboard.getText());
+        String result = driver.findElement(By.xpath("//XCUIElementTypeStaticText[@name=\"Hello Anshu!\"]")).getText();
+        Assert.assertEquals(result, "Hello Anshu!");
 
     }
 

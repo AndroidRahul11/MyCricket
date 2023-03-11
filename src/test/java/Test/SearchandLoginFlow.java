@@ -1,5 +1,6 @@
 package Test;
 
+import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import qa.mobile.iosBase;
@@ -8,7 +9,15 @@ import java.lang.reflect.Method;
 
 public class SearchandLoginFlow extends iosBase {
 
-    @Test(priority = 1)
+    @Test(priority = 0)
+    public void verifyIsPlayerAvailable(){
+        if(homeScreen.isPlayerScreenPresent()){
+
+        }else{
+            Assert.fail("Screen not exist.");
+        }
+    }
+    @Test(priority = 1, dependsOnMethods = {"verifyIsPlayerAvailable"})
     public void clickPlayer(){
         homeScreen.accessPlayer();
     }
@@ -39,7 +48,6 @@ public class SearchandLoginFlow extends iosBase {
         moreScreen.Morebtn();
         moreScreen.AccHolder();
         moreScreen.logoutbtn();
-
     }
     @BeforeMethod
     public void beforeMethod(Method m){

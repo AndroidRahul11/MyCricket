@@ -20,7 +20,7 @@ public class MoreScreen extends iosBase {
     @iOSXCUITFindBy(xpath = "//XCUIElementTypeButton[@name=\"Matches\"]") public WebElement Matchesbtn;
     @iOSXCUITFindBy(xpath = "//XCUIElementTypeButton[@name=\"Player Stats\"]") public WebElement PlayerStatsbtn;
     @iOSXCUITFindBy(xpath = "//XCUIElementTypeButton[@name=\"Ladders\"]") public WebElement Laddersbtn;
-    @iOSXCUITFindBy(xpath = "//XCUIElementTypeImage[@name=\"tabBarMore\"]") public WebElement Morebtn;
+    @iOSXCUITFindBy(xpath = "//XCUIElementTypeButton[@name=\"More\"]") public WebElement Morebtn;
     @iOSXCUITFindBy(xpath = "//XCUIElementTypeStaticText[@name=\"Account holder\"]") public WebElement AccHolder;
     @iOSXCUITFindBy(xpath = "//XCUIElementTypeStaticText[@name=\"Clubs\"]") public WebElement Following;
     @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeButton[`value == \"On\"`][1]") public WebElement Follclub;

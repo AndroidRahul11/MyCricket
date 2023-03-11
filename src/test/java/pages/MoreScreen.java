@@ -15,7 +15,6 @@ public class MoreScreen extends iosBase {
         PageFactory.initElements(new AppiumFieldDecorator(this.driver), this);
     }
 
-
     @iOSXCUITFindBy(xpath= "//XCUIElementTypeButton[@name=\"Home\"]") public WebElement Homebtn;
     @iOSXCUITFindBy(xpath = "//XCUIElementTypeButton[@name=\"Matches\"]") public WebElement Matchesbtn;
     @iOSXCUITFindBy(xpath = "//XCUIElementTypeButton[@name=\"Player Stats\"]") public WebElement PlayerStatsbtn;
@@ -26,22 +25,37 @@ public class MoreScreen extends iosBase {
     @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeButton[`value == \"On\"`][1]") public WebElement Follclub;
     @iOSXCUITFindBy(xpath = "//XCUIElementTypeStaticText[@name=\"LOGOUT\"]") public WebElement logoutbtn;
 
-    public HomeScreen Morebtn(){
+    @iOSXCUITFindBy(xpath = "//XCUIElementTypeButton[@name=\"Done\"]") public WebElement DoneLogout;
+
+
+    public MoreScreen Morebtn(){
         util.waitforVisibility(Morebtn, 10);
         util.click(Morebtn);
-        return this.Morebtn();
+        return this;
     }
 
-    public HomeScreen AccHolder(){
+    public MoreScreen AccHolder(){
         util.waitforVisibility(AccHolder, 10);
         util.click(AccHolder);
-        return this.Morebtn();
+        return this;
     }
-    public HomeScreen logoutbtn(){
+    public MoreScreen logoutbtn(){
         util.waitforVisibility(logoutbtn, 10);
         util.click(logoutbtn);
-        return this.Morebtn();
+        return this;
     }
+    public MoreScreen DoneLogout(){
+        util.waitforVisibility(DoneLogout, 10);
+        util.click(DoneLogout);
+        return this;
+    }
+    public MoreScreen logout(){
+         moreScreen.Morebtn();
+         moreScreen.AccHolder();
+         moreScreen.logoutbtn();
+         moreScreen.DoneLogout();
+         return this;
+     }
 }
 
 

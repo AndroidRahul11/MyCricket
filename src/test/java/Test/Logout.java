@@ -6,5 +6,6 @@ import qa.mobile.iosBase;
 public class Logout extends iosBase {
 
     public Logout() {
+
     }
 }

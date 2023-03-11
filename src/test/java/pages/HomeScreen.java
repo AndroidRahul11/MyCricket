@@ -90,6 +90,14 @@ public class HomeScreen extends iosBase {
 
     }
 
+    public void verifyUserIsLoggedOut() {
+        util.waitforVisibility(userNameOnDashboard,15);
+        //Assert.assertTrue(userNameOnDashboard.getText().contains("Anshu"),"Actual text:"+userNameOnDashboard.getText());
+        String result = driver.findElement(By.xpath("//XCUIElementTypeStaticText[@name=\"Hello Guest!\"]")).getText();
+        Assert.assertEquals(result, "Hello Guest!");
+
+    }
+
 }
 
 

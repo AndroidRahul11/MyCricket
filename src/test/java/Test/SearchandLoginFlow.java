@@ -3,6 +3,7 @@ package Test;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+import pages.MoreScreen;
 import qa.mobile.iosBase;
 
 import java.lang.reflect.Method;
@@ -45,9 +46,7 @@ public class SearchandLoginFlow extends iosBase {
     }
     @Test(priority = 5)
     public void logoutTest(){
-        moreScreen.Morebtn();
-        moreScreen.AccHolder();
-        moreScreen.logoutbtn();
+        moreScreen.logout();
     }
     @BeforeMethod
     public void beforeMethod(Method m){

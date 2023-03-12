@@ -11,6 +11,7 @@ public class LoginTests extends iosBase {
         homeScreen.navigateToLoginPage();
         loginScreen.logInToApplication();
         homeScreen.verifyUserIsLoggedIn();
+        moreScreen.logout();
     }
     @Test(priority = 2)
     public void VerifyLogoutFunctionality(){

@@ -10,9 +10,9 @@ import io.appium.java_client.service.local.AppiumDriverLocalService;
 import io.appium.java_client.service.local.AppiumServiceBuilder;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Listeners;
 import pages.*;
 import utils.Utility;
-
 import java.io.File;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -72,7 +72,7 @@ public class iosBase {
     @AfterClass
     public void teardown() throws InterruptedException {
         Thread.sleep(10000);
-        service.stop();
+        //service.stop();
         driver.quit();
     }
 

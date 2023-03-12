@@ -15,7 +15,7 @@ public class SearchandLoginFlow extends iosBase {
         if(homeScreen.isPlayerScreenPresent()){
 
         }else{
-            Assert.fail("Screen not exist.");
+            Assert.fail("Screen not exist.So we are skipped the TC.");
         }
     }
     @Test(priority = 1, dependsOnMethods = {"verifyIsPlayerAvailable"})
@@ -23,7 +23,7 @@ public class SearchandLoginFlow extends iosBase {
         homeScreen.accessPlayer();
     }
 
-    @Test(priority = 2)
+    @Test(priority = 2, dependsOnMethods = {"verifyIsPlayerAvailable"})
     public void searchPlayerFunctionality(){
         Splayer.searchPlayer("boronia");
         try {
@@ -32,7 +32,7 @@ public class SearchandLoginFlow extends iosBase {
         {
         }
     }
-    @Test(priority = 3)
+    @Test(priority = 3, dependsOnMethods = {"verifyIsPlayerAvailable"})
     public void viewPlayerDirectory(){
         Splayer.selectClubDirectory();
         //Sc.NationalCompetitions();

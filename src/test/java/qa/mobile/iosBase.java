@@ -1,8 +1,6 @@
 package qa.mobile;
 
 
-import Test.Logout;
-import io.appium.java_client.AppiumBy;
 import io.appium.java_client.ios.IOSDriver;
 import io.appium.java_client.ios.options.XCUITestOptions;
 import io.appium.java_client.remote.MobileCapabilityType;
@@ -10,7 +8,6 @@ import io.appium.java_client.service.local.AppiumDriverLocalService;
 import io.appium.java_client.service.local.AppiumServiceBuilder;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
-import org.testng.annotations.Listeners;
 import pages.*;
 import utils.Utility;
 import java.io.File;
@@ -28,7 +25,7 @@ public class iosBase {
     public static Follow Follow;
     public static LoginScreen loginScreen;
     public static MoreScreen moreScreen;
-     public static Logout logout;
+     public static SplashScreen splashScreen;
 
     @BeforeClass
     public void ConfiguredAppium() throws MalformedURLException {
@@ -54,12 +51,12 @@ public class iosBase {
 
         driver = new IOSDriver(new URL("http://0.0.0.0:4723"), options);
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
-        try{
-            driver.findElement(AppiumBy.iOSClassChain("**/XCUIElementTypeButton[`label == \"Skip\"`]")) .click();
-        }catch (Exception e){
-            System.out.println("Skip button not available to click.");
-        }
-        //driver.findElement(AppiumBy.xpath("//XCUIElementTypeStaticText[@name=\"PLAYER\"]")).click();
+        //try{
+        //  driver.findElement(AppiumBy.iOSClassChain("**/XCUIElementTypeButton[`label == \"Skip\"`]")) .click();
+       // }catch (Exception e){
+        //   System.out.println("Skip button not available to click.");
+       // }
+
         homeScreen=new HomeScreen(driver);
         Splayer = new Player(driver);
         util = new Utility(driver);
@@ -67,7 +64,7 @@ public class iosBase {
          Follow = new Follow (driver);
         loginScreen = new LoginScreen(driver);
         moreScreen = new MoreScreen(driver);
-        //logout = new Logout(driver);
+        splashScreen = new SplashScreen(driver);
     }
     @AfterClass
     public void teardown() throws InterruptedException {

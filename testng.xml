@@ -3,7 +3,8 @@
 <suite name="All Test Suite">
     <test verbose="2" preserve-order="true" name="/Users/anshu_yadav/IdeaProjects/MyCricket">
         <classes>
-        <class name="Test.SearchandLoginFlow"/>
+        <class name="Test.SplashScreenTest"/>
+            <class name="Test.LoginTests"/>
     </classes>
     </test>
 </suite>
